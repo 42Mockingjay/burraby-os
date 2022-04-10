@@ -69,7 +69,7 @@ effects_page = 0
 def getList(dict):
     list = []
     for value in dict.values():
-        list.append(key)
+        list.append(value)
     return list
 effects_content = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["non_music"])
 music_effects_page = 0
