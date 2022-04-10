@@ -290,7 +290,7 @@ while True:
                 for key in dict.keys():
                     list.append(key)
                 return list
-            effect = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["music"])[effects_page]
+            effect = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["non_music"])[effects_page]
 
             query = {
                 "device": "device_0",
