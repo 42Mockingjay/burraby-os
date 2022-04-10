@@ -284,6 +284,26 @@ while True:
                 page = "effects"
             if neopixels_page == 2: #Music Effect
                 page = "music_effects"
+        elif page=="effects":
+            def getList(dict):
+                list = []
+                for key in dict.keys():
+                    list.append(key)
+                return list
+            effect = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["music"])[effects_page]
+
+            query = {
+                "device": "device_0",
+                "effect": effect
+            }
+            r = requests.post('http://192.168.1.90:80/api/effect/active', json=query)
+
+            display.fill(0) #Fill the screen with black
+            display.text("Effect",0,0,1)
+            display.text(effect,0,15,1)
+            display.show()
+            sleep_ms(1000)
+            page = "neopixels"
 
         elif page=="other_lights":
             if other_lights_page == 0: #Turn off
