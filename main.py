@@ -135,7 +135,7 @@ def music_player(dir, name):
             #If select/volume button pressed
             if status[3] == 1:
                 volume += 10
-                if volume == 70:
+                if volume == 50:
                     volume = 0
                 if volume == 10:
                     leds.clear()
@@ -148,21 +148,20 @@ def music_player(dir, name):
                     leds.setPixel(1, green)
                     leds.setPixel(2, white)
                     leds.show()
-                elif volume == 40:
+                elif volume == 30:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(0, red)
                     leds.setPixel(1, white)
                     leds.setPixel(2, white)
                     leds.show()
-                elif volume == 50:
+                elif volume == 40:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.fill(magenta)
                     leds.show()
                 elif volume == 0:
                     leds.clear()
-
 
                 os.system(f"amixer cset numid=3 {volume}%")
                 display.fill(0) #Fill the screen with black
