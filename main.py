@@ -61,7 +61,7 @@ home_page = 0
 home_content = ["Music", "Neopixels", "Other lights", "Weather", "System", "Buzzer"]
 
 music_page = 0
-music_content = ["Caves&Cliffs OST", "Nether OST", "Volume Alpha", "Life in Stereo"]
+music_content = ["Caves&Cliffs OST", "Nether OST", "Volume Alpha", "Life in Stereo", "The Planets Suite - Jupiter"]
 
 neopixels_page = 0
 neopixels_content = ["Off", "Non-Music Effects", "Music Effects", "Random Cycle", "Random Non-Music", "Random Music"]
@@ -477,6 +477,8 @@ while True:
                 music_player("/home/pi/Desktop/VolumeAlpha", music_content[2])
             elif music_page == 3:
                 music_player("/home/pi/Desktop/LifeInStereo", music_content[3])
+            elif music_page == 4:
+                music_player("/home/pi/Desktop/PlanetsSuiteJupiter", music_content[4])
 
 
     if page == "home":
