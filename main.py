@@ -64,11 +64,11 @@ music_page = 0
 music_content = ["Caves&Cliffs OST", "Nether OST", "Volume Alpha", "Life in Stereo", "The Planets Suite - Jupiter"]
 
 neopixels_page = 0
-neopixels_content = ["Off", "Non-Music Effects", "Music Effects", "Random Cycle", "Random Non-Music", "Random Music"]
+neopixels_content = ["Off", "Non-Music Effects", "Music Effects"]
 effects_page = 0
 def getList(dict):
     list = []
-    for key in dict.keys():
+    for value in dict.values():
         list.append(key)
     return list
 effects_content = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["non_music"])
