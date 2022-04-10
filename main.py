@@ -305,7 +305,7 @@ while True:
 
             display.fill(0) #Fill the screen with black
             display.text("Effect",0,0,1)
-            display.text(effect,0,15,1)
+            display.text(effects_content[effects_page],0,15,1)
             display.show()
             sleep_ms(1000)
             page = "neopixels"
