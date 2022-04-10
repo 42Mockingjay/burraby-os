@@ -170,8 +170,6 @@ def music_player(dir, name):
                 display.text(f"{volume}%",0,15,1)
                 display.show()
 
-                sleep_ms(200) #Sleep for 0.2 of a second
-
                 display_song()
 
                 leds.setBrightness(15)
