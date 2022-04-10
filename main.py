@@ -95,12 +95,9 @@ def music_player(dir, name):
     music_list = os.listdir(dir)
     print(music_list)
     track_num = 0
-    pygame.mixer.music.set_volume(0.5)
+    pygame.mixer.music.set_volume(1)
+    volume = 0
     leds.clear()
-    leds.setBrightness(15)
-    leds.setPixel(1, green)
-    leds.setPixel(2, white)
-    leds.show()
 
     def display_song():
         display.fill(0) #Fill the screen with black
@@ -136,45 +133,43 @@ def music_player(dir, name):
                 break
             #If select/volume button pressed
             if status[3] == 1:
-                volume = pygame.mixer.music.get_volume()
-                if volume == 0.0:
+                volume += 10
+                if volume = 80:
+                    volume = 0
+                if volume == 10:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(2, blue)
                     leds.show()
-                    pygame.mixer.music.set_volume(0.25)
-                elif volume == 0.25:
+                elif volume == 30:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(1, green)
                     leds.setPixel(2, white)
                     leds.show()
-                    pygame.mixer.music.set_volume(0.50)
-                elif volume == 0.50:
+                elif volume == 50:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(0, red)
                     leds.setPixel(1, white)
                     leds.setPixel(2, white)
                     leds.show()
-                    pygame.mixer.music.set_volume(0.75)
-                elif volume == 0.75:
+                elif volume == 70:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.fill(magenta)
                     leds.show()
-                    pygame.mixer.music.set_volume(1.0)
-                elif volume == 1.0:
+                elif volume == 0:
                     leds.clear()
-                    pygame.mixer.music.set_volume(0.0)
 
-                volume = int(pygame.mixer.music.get_volume()*100)
+
+                os.system(f"amixer cset numid=3 {volume}%")
                 display.fill(0) #Fill the screen with black
                 display.text("Volume:",0,0,1)
                 display.text(f"{volume}%",0,15,1)
                 display.show()
 
-                sleep_ms(1000) #Sleep for one second
+                sleep_ms(200) #Sleep for 0.2 of a second
 
                 display_song()
 
