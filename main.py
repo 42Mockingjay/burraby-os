@@ -134,7 +134,7 @@ def music_player(dir, name):
             #If select/volume button pressed
             if status[3] == 1:
                 volume += 10
-                if volume = 80:
+                if volume == 80:
                     volume = 0
                 if volume == 10:
                     leds.clear()
