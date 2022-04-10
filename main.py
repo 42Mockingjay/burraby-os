@@ -66,9 +66,14 @@ music_content = ["Caves&Cliffs OST", "Nether OST", "Volume Alpha", "Life in Ster
 neopixels_page = 0
 neopixels_content = ["Off", "Non-Music Effects", "Music Effects", "Random Cycle", "Random Non-Music", "Random Music"]
 effects_page = 0
-effects_content = ["Single", "Gradient", "Fade", "Sync Fade", "Slide", "Bubble", "Twinkle", "Pendulum", "Rods", "Segment Colour", "Fireplace"]
+def getList(dict):
+    list = []
+    for key in dict.keys():
+        list.append(key)
+    return list
+effects_content = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["non_music"])
 music_effects_page = 0
-music_effects_content = ["Scroll", "Advanced Scroll", "Energy", "Wavelength", "Bars", "Power", "Beat", "Bear Twinkle", "Beat Slide", "Wave", "Wiggle", "VU Meter", "Spectrum Analyzer", "Direction Changer"]
+music_effects_content = getList(requests.get('http://192.168.1.90:80/api/resources/effects').json()["music"])
 
 other_lights_page = 0
 other_lights_content = ["Off", "On", "Scenes"]
