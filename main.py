@@ -96,6 +96,7 @@ def music_player(dir, name):
     print(music_list)
     track_num = 0
     pygame.mixer.music.set_volume(1)
+    os.system(f"amixer cset numid=3 0%")
     volume = 0
     leds.clear()
 
@@ -134,27 +135,27 @@ def music_player(dir, name):
             #If select/volume button pressed
             if status[3] == 1:
                 volume += 10
-                if volume == 80:
+                if volume == 70:
                     volume = 0
                 if volume == 10:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(2, blue)
                     leds.show()
-                elif volume == 30:
+                elif volume == 20:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(1, green)
                     leds.setPixel(2, white)
                     leds.show()
-                elif volume == 50:
+                elif volume == 40:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.setPixel(0, red)
                     leds.setPixel(1, white)
                     leds.setPixel(2, white)
                     leds.show()
-                elif volume == 70:
+                elif volume == 50:
                     leds.clear()
                     leds.setBrightness(50)
                     leds.fill(magenta)
